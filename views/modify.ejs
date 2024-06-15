@@ -1,0 +1,55 @@
+<%-include('partials/header.ejs') %>
+<div id="edit-form">
+<% if(locals.book) {%>
+<form action="/save/<%= book.id %>" method="post" id="edit">
+    <h2>Book's Title</h2>
+    <input type="text" name="title" value="<%= book.title %>">
+
+    <h2>Author</h2>
+    <input type="text" name="author" value="<%= book.author %>">
+
+    <h2>Rating</h2>
+    <input type="text" name="rating" value="<%= book.rating %>">
+    
+    <h2>Date</h2>
+    <input type="text" name="date" value="<%= (book.date).toDateString()%>">
+
+    <h2>ISBN</h2>
+    <input type="text" name="isbn" value="<%= book.isbn %>" required>
+
+    <h2>Short Review</h2>
+    <textarea name="review" id="review"><%= book.review %></textarea>
+
+    <h2>Notes</h2>
+    <textarea name="notes" id="notes"><%= book.notes %></textarea>
+
+    <button type="submit"><h3>SAVE</h3></button>
+</form>
+<% } else { %>
+<form action="/new" method="post" id="edit">
+    <h2>Book's Title</h2>
+    <input type="text" name="title" placeholder="Type the title here">
+
+    <h2>Author</h2>
+    <input type="text" name="author" placeholder="Type the author's name here">
+
+    <h2>Rating</h2>
+    <input type="text" name="rating" placeholder="leave your rating here" >
+    
+    <h2>Date</h2>
+    <input type="text" name="date" placeholder="yyyy/mm/dd">
+
+    <h2>ISBN</h2>
+    <input type="text" name="ISBN" placeholder="XXXXXXX" required>
+
+    <h2>Short Review</h2>
+    <textarea id="review" name="review" placeholder="Type a short review here"></textarea>
+
+    <h2>Notes</h2>
+    <textarea id="notes" name="notes" placeholder="Type notes here"></textarea>
+
+    <button type="submit"><h3>CREATE</h3></button>
+</form>
+<% } %>
+</div>
+<%-include('partials/footer.ejs')  %>

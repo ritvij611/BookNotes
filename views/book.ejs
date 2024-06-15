@@ -1,0 +1,26 @@
+<%-include('partials/header.ejs')  %>
+<form action="/add">
+    <button class="add"><h2>ADD BOOK</h2></button>
+</form>
+<hr>
+<% if(locals.book){ %>
+    <div class="bookTemplate">
+        <img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%=book.isbn%>-L.jpg" alt="book-cover">
+        <span>
+            <h2><%= book.title %></h2>
+        </span>
+        <span>
+            <form action="/edit/<%= book.id %>" method="get"><button class="edit" type="submit">EDIT</button></form>
+            <form action="/delete/<%= book.id %>" method="delete"><button class="delete" type="submit">DELETE</button></form>
+        </span>
+        <h5 class="date">Date read: <%= (book.date).toDateString() %> * * * * * * I'd rate it: <%= book.rating %>/10</h5>
+        <h5 class="date">ISBN: <%= book.isbn %> </h5>
+        
+        <p class="review"><%= book.review %></p>
+        <h3 style="color: cadetblue;">My Notes</h3>
+        <p class="review"><%= book.notes %></p>
+        
+        <hr>
+        </div>
+<% } %>
+<%-include('partials/footer.ejs')  %>

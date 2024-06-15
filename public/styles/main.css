@@ -1,0 +1,62 @@
+body {background-color: black;}
+
+.heading{
+    color: aqua;
+}
+
+.book-cover{
+    float: left;
+    height: 100px;
+    margin: 0 10px 10px 10px;
+    border: 2px solid greenyellow;
+}
+
+.sorting{
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.sorting button{
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    margin: 5px;
+    padding: 5px;
+}
+
+.intro, .books{
+    margin-left: 20px;
+}
+
+.bookTitle{
+    color: coral;
+}
+
+.date, .rating, .review, .notesLink{
+    color: white;
+}
+
+.bookItem{
+    height: fit-content;
+}
+
+.details{color: aliceblue;}
+
+.add{
+    background-color: chartreuse;
+    padding: 0px 5px;
+    border-radius: 15px;
+    
+    
+}
+
+.delete{background-color: darkred;}
+.edit{background-color: blue;}
+.delete, .edit {
+    width: 100px;
+    color: white;
+    padding: 10px 0px;
+}
+
+.add h2{text-decoration: none;}

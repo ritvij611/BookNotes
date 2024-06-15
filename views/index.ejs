@@ -1,0 +1,39 @@
+<%-include('partials/header.ejs')%>
+<div class="intro">
+<h2 class="heading">Books I've Read</h2>
+<p class="details">
+    Tiny summary but detailed notes for each. Use the ISBN number to find it from your local library or anywhere else. This page will constantly update as I read more, so bookmark it if you want to check back in a few months.
+</p>
+</div>
+<form action="/add">
+    <button class="add"><h2>ADD BOOK</h2></button>
+</form>
+<hr>
+<div class="sorting">
+    <h2>Sort By: </h2>
+    <form action="/sortbyname" method="get" ><button type="submit">Name</button></form>
+    <form action="/sortbydate" method="get" ><button type="submit">Date</button></form>
+    <form action="/sortbyrate" method="get" ><button type="submit">Rating</button></form>
+</div>
+<hr>
+<div class="books">
+<% books.forEach( book => { %>
+<div class="bookItem">
+<img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%=book.isbn%>-L.jpg" alt="book-cover">
+<span><a class="bookTitle" href="/book/<%= book.id %>">
+    <h2><%= book.title %></h2>
+</a></span>
+<span>
+    <form action="/edit/<%= book.id %>" method="get" ><button class="edit" type="submit">EDIT</button></form>
+    <form action="/delete/<%= book.id %>" method="delete"><button class="delete" type="submit">DELETE</button></form>
+</span>
+<h5 class="date">Date read: <%= (book.date).toDateString() %> * * * * * * I'd rate it: <%= book.rating %>/10</h5>
+
+<p class="review"><%= book.review %></p>
+
+<hr>
+</div>
+<% }); %>
+</div>
+
+<%-include('partials/footer.ejs')%>
